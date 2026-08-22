@@ -42,23 +42,33 @@ sudo apt install mdadm -y
 
 3. Crear el arreglo RAID 1
 Suponiendo que los discos disponibles son /dev/sdb y /dev/sdc:
-```sudo mdadm --create --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sdb /dev/sdc```
+```
+sudo mdadm --create --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sdb /dev/sdc
+```
 
-4. Verificar estado del arreglo
-```cat /proc/mdstat```
-```sudo mdadm --detail /dev/md0```
+5. Verificar estado del arreglo
+```
+cat /proc/mdstat
+sudo mdadm --detail /dev/md0
+```
 
 Guardar configuración permanente
-```bash sudo mdadm --detail --scan >> /etc/mdadm/mdadm.conf```
+```
+bash sudo mdadm --detail --scan >> /etc/mdadm/mdadm.conf
+```
 
 5. Formatear y montar el RAID
-```sudo mkfs.ext4 /dev/md0```
-```sudo mkdir -p /mnt/raid1```
-```sudo mount /dev/md0 /mnt/raid1```
+```
+sudo mkfs.ext4 /dev/md0
+sudo mkdir -p /mnt/raid1
+sudo mount /dev/md0 /mnt/raid1
+```
 
 6. Configurar montaje automático
 Editar /etc/fstab y agregar:
-```/dev/md0   /mnt/raid1   ext4   defaults   0   0```
+```
+/dev/md0   /mnt/raid1   ext4   defaults   0   0
+```
 
 ---
 
