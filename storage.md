@@ -35,7 +35,7 @@ En palabras sencillas: cada archivo se guarda dos veces, en dos discos distintos
 
 Implementación Técnica con mdadm
 1. Instalar la herramienta de administración
-```bash
+```
 sudo apt update
 sudo apt install mdadm -y
 ```
