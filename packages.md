@@ -47,3 +47,9 @@ Un mirror local es un servidor interno que almacena una copia de los paquetes of
 
 ```bash
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
+
+
+#### Paso 2: Editar el archivo de repositorios
+
+```bash
+sudo nano /etc/apt/sources.list
