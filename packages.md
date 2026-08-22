@@ -46,3 +46,17 @@ Un mirror local es un servidor interno que almacena una copia de los paquetes of
 
 ```bash
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
+
+
+#### Paso 2: Editar el archivo de repositorios
+
+```bash
+sudo nano /etc/apt/sources.list
+
+#### Paso 3: Configurar el mirror local
+
+```bash
+deb http://mirror.local/ubuntu noble main restricted
+deb http://mirror.local/ubuntu noble-updates main restricted
+deb http://mirror.local/ubuntu noble-security main restricted
+deb http://mirror.local/ubuntu noble-backports main restricted universe multiverse
