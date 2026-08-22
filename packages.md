@@ -42,14 +42,60 @@ Un mirror local es un servidor interno que almacena una copia de los paquetes of
 
 ### Configuración Técnica
 
-
 #### Paso 1: Respaldo del archivo de repositorios
 
 ```bash
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
-
+```
 
 #### Paso 2: Editar el archivo de repositorios
 
 ```bash
 sudo nano /etc/apt/sources.list
+```
+
+#### Paso 3: Configurar el mirror local
+
+```bash
+deb http://mirror.local/ubuntu noble main restricted
+deb http://mirror.local/ubuntu noble-updates main restricted
+deb http://mirror.local/ubuntu noble-security main restricted
+deb http://mirror.local/ubuntu noble-backports main restricted universe multiverse
+```
+
+#### Paso 4: Actualizar la lista de paquetes
+
+```bash
+sudo apt update
+```
+
+#### Paso 5: Verificar la configuración
+
+```bash
+sudo apt upgrade --dry-run
+```
+
+#### Paso 6: Instalar un paquete de ejemplo desde el mirror local
+
+```bash
+sudo apt install apache2
+```
+
+#### Paso 7: Verificar que el paquete se instaló correctamente
+
+```bash
+apache2 -v
+```
+
+---
+
+## 3. Conclusión
+
+La implementación de un repositorio espejo local permitirá a InnovaCloud Solutions optimizar su infraestructura de gestión de paquetes, garantizando:
+
+- **Consistencia:** Todos los servidores usarán las mismas versiones de software.
+- **Eficiencia:** Se reducirá el tiempo de instalación y el consumo de ancho de banda.
+- **Control:** Se podrá auditar y validar cada paquete antes de su instalación.
+- **Disponibilidad:** Los servidores podrán instalar paquetes incluso sin conexión a internet.
+
+Esta solución se alinea con las mejores prácticas de administración de sistemas Linux y representa una mejora significativa en la operación del equipo de TI de InnovaCloud Solutions.
