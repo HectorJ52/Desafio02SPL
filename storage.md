@@ -35,14 +35,16 @@ En palabras sencillas: cada archivo se guarda dos veces, en dos discos distintos
 
 Implementación Técnica con mdadm
 1. Instalar la herramienta de administración
-```sudo apt update```
-```sudo apt install mdadm -y```
+```bash
+sudo apt update
+sudo apt install mdadm -y
+```
 
-2. Crear el arreglo RAID 1
+3. Crear el arreglo RAID 1
 Suponiendo que los discos disponibles son /dev/sdb y /dev/sdc:
 ```sudo mdadm --create --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sdb /dev/sdc```
 
-3. Verificar estado del arreglo
+4. Verificar estado del arreglo
 ```cat /proc/mdstat```
 ```sudo mdadm --detail /dev/md0```
 
